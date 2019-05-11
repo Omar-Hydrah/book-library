@@ -5,12 +5,38 @@
     <meta name="viewport" content="initial-scale=1, device-width=1" />
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/form-style.css" />
     <title>Login Page</title>
 </head>
 <body>
+<div th:insert="fragments/header :: header">Header Fragment</div>
 
-<div class="container">
-	<h1>Login</h1>
+<div class="container row">
+	<form th:action="@{/login}" method="post">
+		<div class="row">
+			<div class="input-field col m12 s12">
+				<input 
+					type="text" 
+					name="username" 
+					placeholder="Username"
+					class="validate"
+					id="username"
+					/>
+				<label for="username">Username</label>
+			</div>
+
+			<div class="input-field col m12 s12">
+				<input 
+					type="password" 
+					name="password" 
+					placeholder="Password" 
+					id="password" 
+					class="validate"/>
+				<label for="password">Password</label>
+			</div>
+			<button type="submit" class="btn cyan">Login</button>
+		</div>
+	</form>
 </div>
 
 <script type="text/javascript" src="/js/jquery.min.js"></script>
