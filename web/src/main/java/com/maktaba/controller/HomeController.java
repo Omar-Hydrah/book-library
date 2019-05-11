@@ -25,6 +25,11 @@ public class HomeController{
 	@Autowired
 	private UserService userService;
 
+	@GetMapping("/")
+	public String index(){
+		return "index";
+	}
+
 	@GetMapping("/login")
 	public String login(){
 		return "login";
@@ -56,7 +61,7 @@ public class HomeController{
 				return "redirect:/login";
 			}
 
-			return "redirect:/user/profile/";
+			return "redirect:/user/";
 		}else{
 			return "register";
 		}
