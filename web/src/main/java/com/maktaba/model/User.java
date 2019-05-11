@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+
 @Entity
 public class User{
 
@@ -14,15 +18,19 @@ public class User{
 	private Long id;
 
 	@Column(unique=true, nullable=false)
+	@Size(min=3, message="Username can't be less than 4 characters")
 	private String username;
 
 	@Column(nullable=false)
+	@Size(min=3, message="Password can't be less than 4 characters")
 	private String password;
 
 	@Column(nullable=false)
+	@Size(min=2, message="First Name can't be less than 3 characters")
 	private String firstName;
 
 	@Column(nullable=false)
+	@Size(min=2, message="Last Name can't be less than 3 characters")
 	private String lastName;
 	
 	public User(){
