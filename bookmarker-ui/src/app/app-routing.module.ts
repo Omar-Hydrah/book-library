@@ -5,9 +5,8 @@ import { MainComponent } from "./main/main.component";
 import { BookPageComponent } from "./book-page/book-page.component";
 
 const routes: Routes = [
-	{path: "list", component: ListComponent},
 	{path: ":id", component: BookPageComponent},
-	{path: "", component: MainComponent, pathMatch:"full"},
+	{path: "", component: MainComponent, pathMatch: "full"},
 ];
 
 @NgModule({

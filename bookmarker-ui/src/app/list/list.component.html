@@ -1,3 +1,5 @@
-<p>
-    list works!
-</p>
+<div class="row">
+	<div *ngFor="let book of books">
+		<book-component [book]="book"></book-component>
+	</div>
+</div>

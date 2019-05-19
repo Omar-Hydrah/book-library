@@ -1,18 +1,16 @@
-<div class="row">
-	<div class="col s12 m7">
-		<div class="card">
-			<div class="card-image">
-				<img src="https://source.unsplash.com/888x500/?water" />
-				<!-- <img src="https://via.placeholder.com/300x150/000000/ffffff/?text=book title"> -->
-				<span class="card-title">Book Title</span>
-			</div>
-			<div class="card-content">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			<div class="card-action">
-				<a href="/book-item/">This is just a link</a>
-			</div>
+<div class="col s12 m6">
+	<div class="card">
+		<div class="card-image">
+			<img src="https://source.unsplash.com/888x500/?water" />
+		<!-- <img src="https://via.placeholder.com/300x150/000000/ffffff/?text=book title"> -->
+			<span class="card-title">{{book.title}}</span>
+		</div>
+		<div class="card-content">
+			<p>{{book.description}}</p>
+		</div>
+		<div class="card-action">
+			<a [routerLink]="['/book', book.id]">This is just a link</a>
 		</div>
 	</div>
 </div>
+<!-- <h1>Book Component</h1> -->
