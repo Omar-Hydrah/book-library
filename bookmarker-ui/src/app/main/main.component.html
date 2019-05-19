@@ -1,5 +1,14 @@
 <div class="container">
-	<list-component [books]="books">
+	<div class="row">
+		<div class="col s12 m4">
+			<favorites-list-component>
 
-	</list-component>
+			</favorites-list-component>
+		</div>
+
+		<div class="col s12 m8">
+			<list-component [books]="books">
+			</list-component>
+		</div>
+	</div>
 </div>
