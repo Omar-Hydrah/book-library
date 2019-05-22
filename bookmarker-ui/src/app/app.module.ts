@@ -7,9 +7,9 @@ import { MainComponent } from "./main/main.component";
 import { ListComponent } from './list/list.component';
 import { BookComponent } from './book/book.component';
 import { BookPageComponent } from './book-page/book-page.component';
+import { FavoriteListComponent } from './favorites-list/favorites-list.component';
 
 import { BookService } from "./service/book.service";
-import { FavoritesListComponent } from './favorites-list/favorites-list.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +18,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
         ListComponent,
         BookComponent,
         BookPageComponent,
-        FavoritesListComponent
+        FavoriteListComponent
     ],
     imports: [
         BrowserModule,
