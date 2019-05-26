@@ -10,6 +10,7 @@ import { BookPageComponent } from './book-page/book-page.component';
 import { FavoriteListComponent } from './favorites-list/favorites-list.component';
 
 import { BookService } from "./service/book.service";
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { BookService } from "./service/book.service";
         ListComponent,
         BookComponent,
         BookPageComponent,
-        FavoriteListComponent
+        FavoriteListComponent,
+        FavoriteComponent
     ],
     imports: [
         BrowserModule,
