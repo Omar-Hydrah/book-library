@@ -11,6 +11,7 @@ import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 
 import { BookService } from "./service/book.service";
+import { FavoriteService } from "./service/favorite.service";
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import { BookService } from "./service/book.service";
     ],
     providers: [
         BookService,
+        FavoriteService,
     ],
     bootstrap: [AppComponent]
 })

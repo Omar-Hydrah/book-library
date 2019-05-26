@@ -1,3 +1,5 @@
-<div class="collection">
-	<a class="collection-item" (click)="onSelectList()">{{favorite.name}}</a>
+<div class="collection" >
+	<div *ngFor="let favorite of favoriteList">
+		<favorite-component [favorite]="favorite" ></favorite-component>		
+	</div>
 </div>
