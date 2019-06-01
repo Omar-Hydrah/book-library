@@ -9,7 +9,9 @@ import { FavoriteService } from "../service/favorite.service";
 })
 export class FavoriteListComponent implements OnInit {
 	private favoriteList : Favorite[];
-	@Output() listSelected = new EventEmitter<Favorite>();
+    private selectedListId : number = 1;
+
+    @Output() listSelected = new EventEmitter<Favorite>();
 
     constructor(private favoriteService : FavoriteService) {}
     ngOnInit() {
@@ -18,6 +20,6 @@ export class FavoriteListComponent implements OnInit {
 
     onSelectList(favorite : Favorite){
     	this.listSelected.emit(favorite);
-        console.log(favorite);
+        this.selectedListId = favorite.id;
     }
 }

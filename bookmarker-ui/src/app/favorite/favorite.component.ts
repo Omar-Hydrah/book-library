@@ -10,6 +10,8 @@ import { FavoriteService } from "../service/favorite.service";
 export class FavoriteComponent implements OnInit {
 
 	@Input() favorite : Favorite;
+    @Input() selectedListId : number;
+    
 	@Output() listSelected = new EventEmitter<Favorite>();
 
     constructor(private favoriteService : FavoriteService) {}

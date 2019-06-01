@@ -1,1 +1,1 @@
-<a class="collection-item" (click)="updateBookList()"  >{{favorite.title}}</a>
+<a class="collection-item" (click)="updateBookList()" [ngClass]="{'active': this.selectedListId == this.favorite.id}"  >{{favorite.title}}</a>
