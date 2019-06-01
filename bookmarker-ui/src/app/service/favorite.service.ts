@@ -58,6 +58,31 @@ export class FavoriteService {
 	    			}
     			},
     		]
-    	}];
+    	},
+    	{
+    		id: 2,
+    		title: "History books",
+    		books: [
+    			{
+	    			id: 1,
+	    			title: "Ancient Rome",
+	    			description: "A brief intro to roman history",
+	    			author : {
+	    				id: 1,
+	    				name: "Mark Anthony"
+	    			}
+    			},
+    			{
+	    			id: 2,
+	    			title: "More Ancient Rome",
+	    			description: "Another brief intro to another roman history",
+	    			author : {
+	    				id: 1,
+	    				name: "Octavian"
+	    			}
+    			},
+    		]
+    	}
+    	];
     }
 }

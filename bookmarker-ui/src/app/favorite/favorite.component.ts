@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Favorite } from "../model/favorite.model";
 import { FavoriteService } from "../service/favorite.service";
 
@@ -10,11 +10,14 @@ import { FavoriteService } from "../service/favorite.service";
 export class FavoriteComponent implements OnInit {
 
 	@Input() favorite : Favorite;
+	@Output() listSelected = new EventEmitter<Favorite>();
 
     constructor(private favoriteService : FavoriteService) {}
     ngOnInit() {
 
     }
 
-	    
+	updateBookList(){
+		this.listSelected.emit(this.favorite);
+	}    
 }

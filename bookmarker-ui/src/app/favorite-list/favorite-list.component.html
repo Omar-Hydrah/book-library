@@ -1,5 +1,9 @@
 <div class="collection" >
 	<div *ngFor="let favorite of favoriteList">
-		<favorite-component [favorite]="favorite" ></favorite-component>		
+		<favorite-component 
+			[favorite]="favorite" 
+			(listSelected)="onListSelected" >
+				
+		</favorite-component>
 	</div>
 </div>
