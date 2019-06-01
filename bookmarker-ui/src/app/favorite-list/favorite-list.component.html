@@ -2,7 +2,7 @@
 	<div *ngFor="let favorite of favoriteList">
 		<favorite-component 
 			[favorite]="favorite" 
-			(listSelected)="onListSelected" >
+			(listSelected)="onSelectList($event)" >
 				
 		</favorite-component>
 	</div>

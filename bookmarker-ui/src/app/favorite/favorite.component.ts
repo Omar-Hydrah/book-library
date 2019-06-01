@@ -16,7 +16,7 @@ export class FavoriteComponent implements OnInit {
     ngOnInit() {
 
     }
-
+    
 	updateBookList(){
 		this.listSelected.emit(this.favorite);
 	}    

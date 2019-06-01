@@ -18,5 +18,6 @@ export class FavoriteListComponent implements OnInit {
 
     onSelectList(favorite : Favorite){
     	this.listSelected.emit(favorite);
+        console.log(favorite);
     }
 }
