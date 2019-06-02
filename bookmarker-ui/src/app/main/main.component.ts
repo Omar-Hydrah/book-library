@@ -18,6 +18,5 @@ export class MainComponent implements OnInit {
 
     onListSelected(favorite : Favorite){
     	this.books = favorite.books;
-        console.log(favorite);
     }
 }
