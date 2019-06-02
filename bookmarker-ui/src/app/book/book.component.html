@@ -11,7 +11,8 @@
 			<p>{{book.description}}</p>
 		</div>
 		<div class="card-action">
-			<a [routerLink]="['/book', book.id]">This is just a link</a>
+			<!-- <a [routerLink]="['/book', book.id]">This is just a link</a> -->
+			<a href="#" (click)="onBookSelected()" >Open Book</a>
 		</div>
 	</div>
 </div>

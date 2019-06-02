@@ -7,8 +7,25 @@
 		</div>
 
 		<div class="col s12 m8">
-			<list-component [books]="books">
-			</list-component>
+			<ng-template 
+				[ngIf]="!bookSelected" 
+				[ngIfElse]="bookSelectedBlock" >
+
+				<list-component 
+					(bookSelected)="onBookSelected($event)"
+					[books]="books">
+				</list-component>
+
+			</ng-template>
+				
+			<ng-template #bookSelectedBlock>
+				<book-page-component 
+					
+					[book]="selectedBook">
+
+				</book-page-component>
+				
+			</ng-template>
 		</div>
 	</div>
 </div>
