@@ -1,9 +1,11 @@
 <div class="col s12 m6">
 	<div class="card">
 		<div class="card-image">
-			<img src="https://source.unsplash.com/888x500/?water" />
-		<!-- <img src="https://via.placeholder.com/300x150/000000/ffffff/?text=book title"> -->
-			<span class="card-title">{{book.title}}</span>
+			<!-- <img src="https://source.unsplash.com/888x500/?water" /> -->
+		<!-- <img src="https://via.placeholder.com/300x150/888888/ffffff/?text=cover"> -->
+			<img src="/assets/books.png" alt="book cover"/>
+			<h1 class="card-title" style="color:yellow;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">{{book.title}} - by {{book.author.name}}</h1>
 		</div>
 		<div class="card-content">
 			<p>{{book.description}}</p>
@@ -13,4 +15,3 @@
 		</div>
 	</div>
 </div>
-<!-- <h1>Book Component</h1> -->
