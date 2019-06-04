@@ -1,3 +1,7 @@
 a.collection-item:hover{
 	cursor:pointer;
 }
+
+a.collection-item{
+	color:black;
+}
