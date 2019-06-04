@@ -12,6 +12,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 
 import { BookService } from "./service/book.service";
 import { FavoriteService } from "./service/favorite.service";
+import { BookFormComponent } from './book-form/book-form.component';
+import { FavoriteFormComponent } from './favorite-form/favorite-form.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +23,9 @@ import { FavoriteService } from "./service/favorite.service";
         BookComponent,
         BookPageComponent,
         FavoriteListComponent,
-        FavoriteComponent
+        FavoriteComponent,
+        BookFormComponent,
+        FavoriteFormComponent
     ],
     imports: [
         BrowserModule,
