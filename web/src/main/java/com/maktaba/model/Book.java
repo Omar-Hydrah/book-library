@@ -38,6 +38,8 @@ public class Book{
 	public void setId(Long id) { this.id = id; }
 	public String getTitle() { return this.title; }
 	public void setTitle(String title) { this.title = title; }
+	public Author getAuthor(){return this.author;}
+	public void setAuthor(Author author){this.author = author;}
 	public String getDescription() { return this.description; }
 	public void setDescription(String description) { this.description = description; }
 
