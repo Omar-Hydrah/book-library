@@ -12,6 +12,7 @@ import com.maktaba.model.Author;
 public interface BookRepository extends JpaRepository<Book, Long> {
 	
 	Book save(Book book);
+	List<Book> findAll();
 	List<Book> findByTitle(String title);
 	List<Book> findByAuthorId(Long authorId);
 	List<Book> findByAuthorId(Author author);
