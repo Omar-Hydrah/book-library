@@ -33,6 +33,10 @@ public class AuthorService{
 		return authorRepo.findByName(name);
 	}
 
+	public List<Author> findByNameLike(String name){
+		return authorRepo.findByNameLike(name);
+	}
+
 	public void deleteByName(String name){
 		authorRepo.deleteByName(name);
 	}
