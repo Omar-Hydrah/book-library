@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
-public class FavoriteList{
+public class Favorite{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,20 +30,20 @@ public class FavoriteList{
 	)
 	private List<Book> books;
 
-	public FavoriteList(){
+	public Favorite(){
 
 	}
 
-	public FavoriteList(String title){
+	public Favorite(String title){
 		this.title = title;
 	}
 
-	public FavoriteList(String title, List<Book> books){
+	public Favorite(String title, List<Book> books){
 		this.title = title;
 		this.books = books;
 	}
 	
-	public FavoriteList(Long id, String title, List<Book> books){
+	public Favorite(Long id, String title, List<Book> books){
 		this.id    = id;
 		this.title = title;
 		this.books = books;

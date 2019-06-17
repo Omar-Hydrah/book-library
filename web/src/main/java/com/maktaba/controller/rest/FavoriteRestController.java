@@ -10,43 +10,43 @@ import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 
 import java.util.List;
 
-import com.maktaba.service.FavoriteListService;
-import com.maktaba.model.FavoriteList;
+import com.maktaba.service.FavoriteService;
+import com.maktaba.model.Favorite;
 import com.maktaba.model.Book;
 
 @RestController
 @RequestMapping("/api/favorite")
-public class FavoriteListRestController{
+public class FavoriteRestController{
 
 	@Autowired
-	private FavoriteListService favoriteListService;
+	private FavoriteService favoriteService;
 
 	@GetMapping("/all")
-	public List<FavoriteList> all(){
-		return favoriteListService.findAll();
+	public List<Favorite> all(){
+		return favoriteService.findAll();
 	}
 
 
 	@PostMapping("/create")
-	public FavoriteList create(String title){
-		FavoriteList list = new FavoriteList(title);
-		return favoriteListService.save(list);
+	public Favorite create(String title){
+		Favorite list = new Favorite(title);
+		return favoriteService.save(list);
 	}
 
 	@GetMapping("/{id}")
-	public FavoriteList findById(@PathVariable("id") Long id){
+	public Favorite findById(@PathVariable("id") Long id){
 
-		return favoriteListService.findById(id);
+		return favoriteService.findById(id);
 	}
 
 	@PostMapping("/{id}/add-book")	
-	public FavoriteList addBook(@PathVariable("id") Long id, Book book){
+	public Favorite addBook(@PathVariable("id") Long id, Book book){
 
-		return favoriteListService.addBook(id, book);
+		return favoriteService.addBook(id, book);
 	}
 
 	@GetMapping("/search/{title}")
-	public FavoriteList searchByTitle(@PathVariable("title") String title){
-		return favoriteListService.findByTitle(title);
+	public Favorite searchByTitle(@PathVariable("title") String title){
+		return favoriteService.findByTitle(title);
 	}
 }
