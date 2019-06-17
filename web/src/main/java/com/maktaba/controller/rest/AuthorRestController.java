@@ -21,13 +21,13 @@ public class AuthorRestController{
 	@Autowired
 	private AuthorService authorService;
 
-	@GetMapping("/create")
+	@PostMapping("/create")
 	public Author create(Author author){
 		return authorService.save(author);
 	}
 
 	@GetMapping("/search/{authorName}")
 	public List<Author> search(@PathVariable("authorName") String name){
-		return authorService.findByName(name);
+		return authorService.findByNameLike(name);
 	}
 }
