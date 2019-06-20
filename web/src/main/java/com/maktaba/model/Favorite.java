@@ -9,7 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,11 +31,12 @@ public class Favorite{
 	private List<Book> books;
 
 	public Favorite(){
-
+		this.books = new ArrayList<>();
 	}
 
 	public Favorite(String title){
 		this.title = title;
+		this.books = new ArrayList<>();
 	}
 
 	public Favorite(String title, List<Book> books){
