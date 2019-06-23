@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { AuthorService } from "./service/author.service";
 import { BookFormComponent } from './book-form/book-form.component';
 import { FavoriteFormComponent } from './favorite-form/favorite-form.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AuthorFormComponent } from './author-form/author-form.component';
 
 @NgModule({
     declarations: [
@@ -30,12 +31,14 @@ import { NavigationComponent } from './navigation/navigation.component';
         FavoriteComponent,
         BookFormComponent,
         FavoriteFormComponent,
-        NavigationComponent
+        NavigationComponent,
+        AuthorFormComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule
     ],
     providers: [
