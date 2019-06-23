@@ -24,7 +24,7 @@ public class Favorite{
 
 	@ManyToMany
 	@JoinTable(
-		name="favorite_list_books",
+		name="favorite_books",
 		joinColumns = {@JoinColumn(name="book_id")},
 		inverseJoinColumns = {@JoinColumn(name="favorite_list_id")}
 	)
