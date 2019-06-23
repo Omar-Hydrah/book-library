@@ -1,3 +1,15 @@
-<p>
-  	favorite-form works!
-</p>
+<div class="container">
+	<form [formGroup]="favoriteForm" (ngSubmit)="handleSubmit" >
+		<div class="row">
+			<div class="input-field col s12">
+				<input 
+					type="text" 
+					name="title" 
+					formControlName="title" />
+				<label for="title">Title</label>
+			</div>
+
+			<button type="submit" class="cyan btn">Save Favorite</button>
+		</div>
+	</form>
+</div>

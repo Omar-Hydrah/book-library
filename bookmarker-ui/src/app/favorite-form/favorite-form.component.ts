@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-favorite-form',
+    selector: 'favorite-form-component',
     templateUrl: './favorite-form.component.html',
     styleUrls: ['./favorite-form.component.css']
 })
