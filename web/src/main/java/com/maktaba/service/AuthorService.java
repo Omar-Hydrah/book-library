@@ -15,6 +15,10 @@ public class AuthorService{
 	@Autowired
 	private AuthorRepository authorRepo;
 
+	public List<Author> findAll(){
+		return authorRepo.findAll();
+	}
+
 	public Author save(Author author){
 		return authorRepo.save(author);
 	}

@@ -21,6 +21,11 @@ public class AuthorRestController{
 	@Autowired
 	private AuthorService authorService;
 
+	@GetMapping({"/all", "/"})
+	public List<Author> all(){
+		return authorService.findAll();
+	}
+
 	@PostMapping("/create")
 	public Author create(Author author){
 		return authorService.save(author);

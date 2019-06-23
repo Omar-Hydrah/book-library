@@ -12,6 +12,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 	
 	Author save(Author author);
 
+	List<Author> findAll();
 	List<Author> findByName(String name);
 	List<Author> findByNameLike(String name);
 
