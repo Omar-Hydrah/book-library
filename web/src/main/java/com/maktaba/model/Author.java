@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class Author{
 	@Column(nullable=false, unique=true)
 	private String name;
 
-	@OneToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.ALL)
 	private List<Book> books;
 
 	public Author(){
