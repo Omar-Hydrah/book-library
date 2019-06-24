@@ -10,6 +10,9 @@ import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.maktaba.model.Author;
 import com.maktaba.service.AuthorService;
 
@@ -17,6 +20,9 @@ import com.maktaba.service.AuthorService;
 @RestController
 @RequestMapping("/api/author")
 public class AuthorRestController{
+
+	private static final Logger log = 
+		LoggerFactory.getLogger(AuthorRestController.class);
 
 	@Autowired
 	private AuthorService authorService;
@@ -26,8 +32,14 @@ public class AuthorRestController{
 		return authorService.findAll();
 	}
 
+	@GetMapping("/{id}")
+	public Author findById(@PathVariable("id") Long id){
+		return authorService.findById(id);
+	}
+
 	@PostMapping("/create")
 	public Author create(Author author){
+		log.info("\n\n" + author.toString() + "\n\n");
 		return authorService.save(author);
 	}
 

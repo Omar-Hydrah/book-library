@@ -10,6 +10,9 @@ import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.maktaba.service.FavoriteService;
 import com.maktaba.model.Favorite;
 import com.maktaba.model.Book;
@@ -17,6 +20,9 @@ import com.maktaba.model.Book;
 @RestController
 @RequestMapping("/api/favorite")
 public class FavoriteRestController{
+
+	private static final Logger log = 
+		LoggerFactory.getLogger(FavoriteRestController.class);
 
 	@Autowired
 	private FavoriteService favoriteService;
@@ -29,6 +35,7 @@ public class FavoriteRestController{
 
 	@PostMapping("/create")
 	public Favorite create(String title){
+		log.info("\n\n" + title + "\n\n");
 		Favorite list = new Favorite(title);
 		return favoriteService.save(list);
 	}
@@ -41,7 +48,7 @@ public class FavoriteRestController{
 
 	@PostMapping("/{id}/add-book")	
 	public Favorite addBook(@PathVariable("id") Long id, Book book){
-
+		log.info("\n\n add " + book.toString() + " to " + id + "\n\n" );
 		return favoriteService.addBook(id, book);
 	}
 

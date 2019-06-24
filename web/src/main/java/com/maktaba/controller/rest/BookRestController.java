@@ -11,6 +11,9 @@ import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import java.util.Optional;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.maktaba.model.Book;
 import com.maktaba.model.Author;
 import com.maktaba.service.BookService;
@@ -19,11 +22,15 @@ import com.maktaba.service.BookService;
 @RequestMapping("/api/book")
 public class BookRestController{
 
+	private static final Logger log = 
+		LoggerFactory.getLogger(BookRestController.class);
+
 	@Autowired
 	private BookService bookService;
 
 	@PostMapping("/create")
 	public Book create(Book book){
+		log.info("\n\n" + book.toString() + "\n\n");
 		return bookService.save(book);
 	}
 
