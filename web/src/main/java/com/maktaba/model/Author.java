@@ -5,12 +5,15 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties({"books"})
 public class Author{
 
 	@Id
@@ -20,7 +23,7 @@ public class Author{
 	@Column(nullable=false, unique=true)
 	private String name;
 
-	@ManyToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Book> books;
 
 	public Author(){
