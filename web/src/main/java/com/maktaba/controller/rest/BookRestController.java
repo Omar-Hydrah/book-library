@@ -34,7 +34,7 @@ public class BookRestController{
 		return bookService.save(book);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/find/{id}")
 	public Book find(@PathVariable("id") Long id){
 		return bookService.findById(id);
 	}

@@ -40,7 +40,7 @@ public class FavoriteRestController{
 		return favoriteService.save(list);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/find/{id}")
 	public Favorite findById(@PathVariable("id") Long id){
 
 		return favoriteService.findById(id);

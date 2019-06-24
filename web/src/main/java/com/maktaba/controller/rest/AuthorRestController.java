@@ -32,7 +32,7 @@ public class AuthorRestController{
 		return authorService.findAll();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/find/{id}")
 	public Author findById(@PathVariable("id") Long id){
 		return authorService.findById(id);
 	}
