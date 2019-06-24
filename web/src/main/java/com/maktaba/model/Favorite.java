@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,9 @@ public class Favorite{
 	@JoinTable(
 		name="favorite_books",
 		joinColumns = {@JoinColumn(name="book_id")},
-		inverseJoinColumns = {@JoinColumn(name="favorite_list_id")}
+		inverseJoinColumns = {@JoinColumn(name="favorite_id")},
+		uniqueConstraints=@UniqueConstraint(
+			columnNames={"book_id", "favorite_id"})
 	)
 	private List<Book> books;
 
