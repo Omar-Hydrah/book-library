@@ -20,6 +20,8 @@ import { FavoriteFormComponent } from './favorite-form/favorite-form.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AuthorFormComponent } from './author-form/author-form.component';
 
+import * as $ from "jquery";
+
 @NgModule({
     declarations: [
         AppComponent,
