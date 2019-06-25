@@ -46,7 +46,7 @@ public class FavoriteRestController{
 		return favoriteService.findById(id);
 	}
 
-	@PostMapping("/{id}/add-book")	
+	@PostMapping("/find/{id}/add-book")	
 	public Favorite addBook(@PathVariable("id") Long id, Book book){
 		log.info("\n\n add " + book.toString() + " to " + id + "\n\n" );
 		return favoriteService.addBook(id, book);
