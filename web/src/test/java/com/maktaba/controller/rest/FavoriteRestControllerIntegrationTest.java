@@ -93,7 +93,7 @@ public class FavoriteRestControllerIntegrationTest{
 
 
 		mvc.perform(
-			get("/api/favorite/1").contentType(MediaType.APPLICATION_JSON))
+			get("/api/favorite/find/1").contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$.title", is(favorite.getTitle())));
 	}
@@ -108,7 +108,7 @@ public class FavoriteRestControllerIntegrationTest{
 			.thenReturn(favorite);
 
 		mvc.perform(
-			post("/api/favorite/1/add-book")
+			post("/api/favorite/find/1/add-book")
 			.param("title", book.getTitle())
 			.contentType(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())

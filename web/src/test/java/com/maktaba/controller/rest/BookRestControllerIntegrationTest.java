@@ -75,10 +75,9 @@ public class BookRestControllerIntegrationTest {
 		Mockito.when(service.findById(anyLong())).thenReturn(book);
 
 		mvc.perform(
-			get("/api/book/2").contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.title", is(book.getTitle())));
-			// .andExpect(jsonPath("$", hasSize(1)))
+			get("/api/book/find/2").contentType(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$.title", is(book.getTitle())));
 	}
 
 	@Test
@@ -92,14 +91,12 @@ public class BookRestControllerIntegrationTest {
 		Mockito.when(service.save(any(Book.class))).thenReturn(book);
 
 		mvc.perform(post("/api/book/create")
-				.param("title", book.getTitle())
-				.param("description", book.getDescription()) 
-				.param("author.name", author.getName())
-				.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.title", is(book.getTitle())))
-			.andExpect(jsonPath("$.author.name", is(author.getName())));
-			// .andExpect(jsonPath("$", hasSize(1)))
-
+			.param("title", book.getTitle())
+			.param("description", book.getDescription()) 
+			.param("author.name", author.getName())
+			.contentType(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$.title", is(book.getTitle())))
+		.andExpect(jsonPath("$.author.name", is(author.getName())));
 	}
 }
