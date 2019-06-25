@@ -15,7 +15,7 @@ export class BookService {
     }
 
     getBook(id : number) : Observable<Book>{
-    	return this.http.get<Book>("/api/book/" + id)
+    	return this.http.get<Book>("/api/book/find/" + id)
     		.pipe(catchError(this.handleError<Book>("getBook")));
     }
     
@@ -31,10 +31,10 @@ export class BookService {
     }
 
     private handleError<T>(operation="operation", result ? : T){
-    	return (error : any) : Observable<T>=>{
-    		console.error(error);
-    		return of(result as T);
-    	}
+        return (error : any) : Observable<T> =>{
+            console.error(error);
+            return of(result as T);
+        }
     }
 
 }
