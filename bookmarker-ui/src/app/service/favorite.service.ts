@@ -10,14 +10,14 @@ import { Favorite, Book } from "../model/";
 export class FavoriteService {
     constructor(private http : HttpClient) {}
 
-    getFavorite(id : number) : Observable<any>{
-        return this.http.get<any>("/api/favorite/" + id)
-            .pipe(catchError(this.handleError("getFavorite", id)));
+    getFavorite(id : number) : Observable<Favorite>{
+        return this.http.get<any>("/api/favorite/find/" + id)
+            .pipe(catchError(this.handleError<Favorite>("getFavorite")));
     }
 
-    searchByTitle(title : string) : Observable<any>{
+    searchByTitle(title : string) : Observable<Favorite>{
         return this.http.get<any>("/api/favorite/search/" + title)
-            .pipe(catchError(this.handleError("searchByTitle", title)));
+            .pipe(catchError(this.handleError<Favorite>("searchByTitle")));
     }
 
     getAll() : Observable<Favorite[]>{
@@ -30,13 +30,11 @@ export class FavoriteService {
             .pipe(catchError(this.handleError<Favorite>("createFavorite", favorite)));
     }
 
-    addBookToFavorite(favorite : Favorite, book : Book){
+    addBookToFavorite(favorite : Favorite, book : Book) : Observable<Favorite>{
     	return this.http.post<Favorite>(
             `/api/favorite/${favorite.id}/add-book`, book)
-    		.pipe(catchError(this.handleError("addBookToFavorite", {
-    			book : book,
-    			favorite : favorite
-    		})));
+    		.pipe(catchError(
+                this.handleError<Favorite>("addBookToFavorite", favorite)));
     }
 
     private handleError<T>(operation="operation", result ? : T){
