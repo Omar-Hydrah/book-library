@@ -15,7 +15,9 @@ export class FavoriteListComponent implements OnInit {
 
     constructor(private favoriteService : FavoriteService) {}
     ngOnInit() {
-    	this.favoriteList = this.favoriteService.getFavoriteList();
+        this.favoriteService.getAll().subscribe((favoriteList : Favorite[])=>{
+            this.favoriteList = favoriteList; 
+        });
     }
 
     onSelectList(favorite : Favorite){
