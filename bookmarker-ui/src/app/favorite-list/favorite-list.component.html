@@ -1,5 +1,8 @@
 <div class="collection" >
-	<div *ngFor="let favorite of favoriteList">
+	<div *ngIf="!favoriteList; else elseBlock">
+		<p>Favorite List is empty</p>
+	</div>
+	<div *ngFor="let favorite of favoriteList" #elseBlock>
 		<favorite-component 
 			[favorite]="favorite" 
 			[selectedListId]="selectedListId"
