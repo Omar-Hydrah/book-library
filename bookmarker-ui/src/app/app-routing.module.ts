@@ -9,9 +9,9 @@ import { AuthorFormComponent }     from "./author-form/author-form.component";
 
 const routes: Routes = [
 	{path: ":id",             component: BookPageComponent},
-	{path: "favorite/:id",    component: BookListComponent},
 	{path: "book/create",     component: BookFormComponent},
 	{path: "favorite/create", component: FavoriteFormComponent},
+	{path: "favorite/:id",    component: BookListComponent},
 	{path: "author/create",   component: AuthorFormComponent},
 	{path: "",                component: MainComponent, pathMatch: "full"},
 
