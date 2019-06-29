@@ -3,11 +3,7 @@
 		<p>Favorite List is empty</p>
 	</div>
 	<div *ngFor="let favorite of favoriteList" #elseBlock>
-		<favorite-component 
-			[favorite]="favorite" 
-			[selectedListId]="selectedListId"
-			(listSelected)="onSelectList($event)" 
-			>
+		<favorite-component [favorite]="favorite" >
 				
 		</favorite-component>
 	</div>
