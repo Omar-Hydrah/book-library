@@ -1,31 +1,8 @@
 <div class="container">
 	<div class="row">
-		<div class="col s12 m4">
-			<favorite-list-component (listSelected)="onListSelected($event)">
 
-			</favorite-list-component>
-		</div>
+		<book-list-component>
 
-		<div class="col s12 m8">
-			<ng-template 
-				[ngIf]="!bookSelected" 
-				[ngIfElse]="bookSelectedBlock" >
-
-				<list-component 
-					(bookSelected)="onBookSelected($event)"
-					[books]="books">
-				</list-component>
-
-			</ng-template>
-				
-			<ng-template #bookSelectedBlock>
-				<book-page-component 
-					
-					[book]="selectedBook">
-
-				</book-page-component>
-				
-			</ng-template>
-		</div>
+		</book-list-component>
 	</div>
 </div>
