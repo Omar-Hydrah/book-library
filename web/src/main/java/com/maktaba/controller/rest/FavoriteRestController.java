@@ -36,7 +36,7 @@ public class FavoriteRestController{
 
 
 	@PostMapping("/create")
-	public Favorite create(@RequestParam("title") String title){
+	public Favorite create(@RequestBody String title){
 		log.info("\n\n" + title + "\n\n");
 		Favorite list = new Favorite(title);
 		return favoriteService.save(list);
@@ -49,7 +49,9 @@ public class FavoriteRestController{
 	}
 
 	@PostMapping("/find/{id}/add-book")	
-	public Favorite addBook(@PathVariable("id") Long id, Book book){
+	public Favorite addBook(@PathVariable("id") Long id, 
+		@RequestBody Book book)
+	{
 		log.info("\n\n add " + book.toString() + " to " + id + "\n\n" );
 		return favoriteService.addBook(id, book);
 	}
