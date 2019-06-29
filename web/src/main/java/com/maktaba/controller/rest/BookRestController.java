@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 
 import java.util.Optional;
@@ -29,7 +30,7 @@ public class BookRestController{
 	private BookService bookService;
 
 	@PostMapping("/create")
-	public Book create(Book book){
+	public Book create(@RequestBody Book book){
 		log.info("\n\n" + book.toString() + "\n\n");
 		return bookService.save(book);
 	}
