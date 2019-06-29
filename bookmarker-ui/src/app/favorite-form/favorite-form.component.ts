@@ -12,16 +12,25 @@ export class FavoriteFormComponent implements OnInit {
 
 	favoriteForm : FormGroup;
 	titleField   : FormControl;
+    message : string;
 
-    constructor() {}
+    constructor(private favoriteService : FavoriteService) {}
     ngOnInit() {
     	this.titleField   = new FormControl("");
     	this.favoriteForm = new FormGroup({
     		titleField : this.titleField
     	});
+        this.message = null;
     }
 
     handleSubmit(){
-
+        this.favoriteService.createFavorite(this.titleField.value)
+        .subscribe((favorite : Favorite)=>{
+            if(favorite == null){
+                this.message = "Failed to create favorite";
+            }else{
+                this.message = "Favorite created";
+            }
+        });
     }
 }
