@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { Favorite, Book } from "../model/";
@@ -8,6 +8,11 @@ import { Favorite, Book } from "../model/";
     providedIn: 'root'
 })
 export class FavoriteService {
+    private httpOptions = {
+        headers: new HttpHeaders({
+            "Content-Type": "application/json"
+        }),
+    }
     constructor(private http : HttpClient) {}
 
     getFavorite(id : number) : Observable<Favorite>{
@@ -25,14 +30,15 @@ export class FavoriteService {
             .pipe(catchError(this.handleError<Favorite[]>("getAll")));
     }
 
-    createFavorite(favorite : Favorite) : Observable<Favorite>{
-        return this.http.post<Favorite>("/api/favorite/create", favorite)
-            .pipe(catchError(this.handleError<Favorite>("createFavorite", favorite)));
+    createFavorite(title : string) : Observable<Favorite>{
+        return this.http.post<Favorite>("/api/favorite/create", title, 
+            this.httpOptions)
+            .pipe(catchError(this.handleError<Favorite>("createFavorite")));
     }
 
     addBookToFavorite(favorite : Favorite, book : Book) : Observable<Favorite>{
     	return this.http.post<Favorite>(
-            `/api/favorite/${favorite.id}/add-book`, book)
+            `/api/favorite/${favorite.id}/add-book`, book, this.httpOptions)
     		.pipe(catchError(
                 this.handleError<Favorite>("addBookToFavorite", favorite)));
     }
