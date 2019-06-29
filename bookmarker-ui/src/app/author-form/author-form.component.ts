@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 import { AuthorService } from "../service/";
-
+import { Author } from "../model/";
 
 @Component({
     selector: 'author-form-component',
@@ -11,17 +11,28 @@ import { AuthorService } from "../service/";
 export class AuthorFormComponent implements OnInit {
 
 	authorForm : FormGroup;
-	name       : FormControl;
+	nameField  : FormControl;
+    message    : string;
 
     constructor(private authorService : AuthorService) {}
     ngOnInit() {
-    	this.name = new FormControl("");
+    	this.nameField = new FormControl("");
     	this.authorForm = new FormGroup({
-    		name : this.name,
+    		nameField : this.nameField,
     	});
+
+        this.message = null;
     }
 
     handleSubmit(){
-
+        var name = this.nameField.value;
+        this.authorService.createAuthor(name)
+        .subscribe((author : Author)=>{
+            if(author != null){
+                this.message = "Author created";
+            }else{
+                this.message = "Failed to create new author " + name;
+            }
+        });
     }
 }

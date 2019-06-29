@@ -5,7 +5,7 @@
 				<input 
 					type="text" 
 					name="name" 
-					formControlName="name"
+					formControlName="nameField"
 					/>
 				<label for="name">Author Name</label>
 			</div>
@@ -13,4 +13,8 @@
 			<button type="submit" class="btn cyan">Save Author</button>
 		</div>
 	</form>
+
+	<div *ngIf="message">
+		<p>{{ message }}</p>
+	</div>
 </div>
