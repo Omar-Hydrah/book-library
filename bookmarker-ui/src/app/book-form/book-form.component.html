@@ -5,7 +5,7 @@
 				<input 
 					type="text" 
 					name="title" 
-					formControlName="title"
+					formControlName="titleField"
 					/>
 				<label for="title">Title</label>
 			</div>
@@ -14,10 +14,24 @@
 				<input 
 					type="text" 
 					name="description" 
-					formControlName="description"
+					formControlName="descriptionField"
 					/>
 				<label for="description">Description</label>
 			</div>
+			<div class="input-field col m12 s12" >
+				<select 
+					id="authorField" 
+					name="author" 
+					formControlName="authorField"
+					class="browser-default"
+					>
+					<option [ngValue]="null" disabled>Select the Author</option>
+					<option 
+						*ngFor="let author of authors"
+						[value]="author.id" >{{author.name}}</option>
+				</select>
+			</div>
+
 			<button type="submit" class="btn cyan">Save Book</button>
 		</div>
 	</form>
