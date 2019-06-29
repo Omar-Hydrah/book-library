@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Book } from "../model/book.model";
-import { BookService } from "../service/book.service";
+import { ActivatedRoute } from "@angular/router";
+import { Book, Favorite } from "../model/";
+import { BookService, FavoriteService } from "../service/";
 
 
 @Component({
@@ -9,13 +10,36 @@ import { BookService } from "../service/book.service";
     styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-	// @Input() books : Book[];
-	// @Output() bookSelected = new EventEmitter<Book>();
-    books : Book[];
+    favoriteId : number;
+    favorite   : Favorite;
+    books      : Book[];
 
-    constructor(private bookService : BookService) {}
+    constructor(private bookService : BookService, 
+        private favoriteService : FavoriteService, 
+        private route : ActivatedRoute) {}
+
     ngOnInit() {
-        console.log();
+        this.route.params.subscribe((param : any)=>{
+
+            if(param["id"] == null || param["id"] == 0){
+                this.favoriteService.getAll()
+                .subscribe((favoriteList : Favorite[])=>{
+                    this.favorite = favoriteList[0]; 
+                    this.books    = this.favorite.books;   
+                });
+
+            }else{
+                this.favoriteId = param["id"];
+                
+                this.favoriteService.getFavorite(this.favoriteId)
+                .subscribe((favorite : Favorite)=>{
+                    this.favorite = favorite;
+                    this.books    = favorite.books;    
+                });
+            }
+
+
+        });
     }
 
       
