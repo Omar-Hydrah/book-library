@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { FavoriteService } from "../service/";
 import { Favorite } from "../model/";
 
@@ -16,7 +16,10 @@ export class FavoriteFormComponent implements OnInit {
 
     constructor(private favoriteService : FavoriteService) {}
     ngOnInit() {
-    	this.titleField   = new FormControl("");
+    	this.titleField   = new FormControl("", [
+            Validators.required,
+            Validators.minLength(4),
+        ]);
     	this.favoriteForm = new FormGroup({
     		titleField : this.titleField
     	});

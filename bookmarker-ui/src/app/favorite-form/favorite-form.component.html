@@ -8,6 +8,15 @@
 					formControlName="titleField" />
 				<label for="title">Title</label>
 			</div>
+			<div class="error" *ngIf="titleField.invalid && 
+				(titleField.touched ||titleField.dirty)">
+				<div *ngIf="titleField.errors.required">
+					<p>Title field can not be left blank</p>
+				</div>
+				<div *ngIf="titleField.errors.minlength">
+					<p>Title must be more than 4 characters</p>
+				</div>
+			</div>
 
 			<button type="submit" class="cyan btn">Save Favorite</button>
 		</div>
