@@ -8,10 +8,13 @@
 					formControlName="titleField"
 					/>
 				<label for="title">Title</label>
-				<div 
-				*ngIf="titleField.invalid && (titleField.dirty || titleField.touched)">
-					<div *ngIf="titleField.errors.required" class="error">
+				<div class ="error" *ngIf="titleField.invalid && 
+					(titleField.dirty || titleField.touched)">
+					<div *ngIf="titleField.errors.required">
 						<p>Title is required</p>
+					</div>
+					<div *ngIf="titleField.errors.minlength" >
+						<p>Title must be more than 4 characters</p>
 					</div>
 				</div>
 			</div>
@@ -28,6 +31,9 @@
 					(descriptionField.dirty || descriptionField.touched)" >
 					<div *ngIf="descriptionField.errors.required">
 						<p>Description is required</p>
+					</div>
+					<div *ngIf="descriptionField.errors.minlength">
+						<p>Description must be more than 10 characters</p>
 					</div>
 				</div>
 

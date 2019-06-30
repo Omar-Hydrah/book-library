@@ -51,6 +51,12 @@ export class BookFormComponent implements OnInit {
     }
 
 	handleSubmit(){
+        if(this.titleField.errors || this.descriptionField.errors 
+            || this.authorField.errors)
+        {
+            return;
+        }
+
         this.book.title       = this.titleField.value;
         this.book.description = this.descriptionField.value;
         this.book.author = this.authors.filter(author => {
