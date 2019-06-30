@@ -27,6 +27,10 @@ export class FavoriteFormComponent implements OnInit {
     }
 
     handleSubmit(){
+        if(this.titleField.errors){
+            return;
+        }
+
         this.favoriteService.createFavorite(this.titleField.value)
         .subscribe((favorite : Favorite)=>{
             if(favorite == null){
