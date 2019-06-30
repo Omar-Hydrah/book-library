@@ -22,10 +22,9 @@ export class BookListComponent implements OnInit {
         this.route.params.subscribe((param : any)=>{
 
             if(param["id"] == null || param["id"] == 0){
-                this.favoriteService.getAll()
-                .subscribe((favoriteList : Favorite[])=>{
-                    this.favorite = favoriteList[0]; 
-                    this.books    = this.favorite.books;   
+                this.bookService.getAll()
+                .subscribe((bookList : Book[])=>{
+                    this.books = bookList;   
                 });
 
             }else{
