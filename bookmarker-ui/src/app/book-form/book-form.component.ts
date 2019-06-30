@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { BookService, AuthorService } from "../service/";
 import { Book, Author } from "../model/";
 
@@ -32,9 +32,15 @@ export class BookFormComponent implements OnInit {
             this.authors = authors;
         });
 
-        this.titleField       = new FormControl("");
-        this.authorField      = new FormControl("");
-        this.descriptionField = new FormControl("");
+        this.titleField       = new FormControl("", [
+            Validators.required,
+            Validators.minLength(4),
+        ]);
+        this.descriptionField = new FormControl("", [
+            Validators.required,
+            Validators.minLength(10),
+        ]);
+        this.authorField      = new FormControl("", Validators.required);
 
         this.bookForm = new FormGroup({
             titleField       : this.titleField,

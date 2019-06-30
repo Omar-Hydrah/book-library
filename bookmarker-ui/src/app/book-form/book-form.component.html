@@ -8,6 +8,12 @@
 					formControlName="titleField"
 					/>
 				<label for="title">Title</label>
+				<div 
+				*ngIf="titleField.invalid && (titleField.dirty || titleField.touched)">
+					<div *ngIf="titleField.errors.required" class="error">
+						<p>Title is required</p>
+					</div>
+				</div>
 			</div>
 
 			<div class="input-field col m12 s12">
@@ -17,6 +23,14 @@
 					formControlName="descriptionField"
 					/>
 				<label for="description">Description</label>
+
+				<div class="error" *ngIf="descriptionField.invalid && 
+					(descriptionField.dirty || descriptionField.touched)" >
+					<div *ngIf="descriptionField.errors.required">
+						<p>Description is required</p>
+					</div>
+				</div>
+
 			</div>
 			<div class="input-field col m12 s12" >
 				<select 
@@ -30,6 +44,14 @@
 						*ngFor="let author of authors"
 						[value]="author.id" >{{author.name}}</option>
 				</select>
+
+				<div class="error" *ngIf="authorField.invalid && 
+					(authorField.touched || authorField.dirty)">
+					<div *ngIf="authorField.errors.required">
+						<p>Author must be selected</p>
+					</div>	
+				</div>
+
 			</div>
 
 			<button type="submit" class="btn cyan">Save Book</button>
