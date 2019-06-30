@@ -8,8 +8,8 @@ import { FavoriteFormComponent }     from "./favorite-form/favorite-form.compone
 import { AuthorFormComponent }     from "./author-form/author-form.component";
 
 const routes: Routes = [
-	{path: ":id",             component: BookPageComponent},
 	{path: "book/create",     component: BookFormComponent},
+	{path: "book/:id",        component: BookPageComponent},
 	{path: "favorite/create", component: FavoriteFormComponent},
 	{path: "favorite/:id",    component: BookListComponent},
 	{path: "author/create",   component: AuthorFormComponent},
