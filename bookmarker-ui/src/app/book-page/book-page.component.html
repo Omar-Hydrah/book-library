@@ -3,4 +3,29 @@
 	<img src="/assets/books.png" alt="book cover" />
 	<p>By {{book.author.name}}</p>
 	<p>{{book.description}}</p>
+
+	<hr />
+	<p>Add this book to a favorite:</p>
+	<div class="row">
+		<form [formGroup]="bookFavoriteForm" (ngSubmit)="handleSubmit()" >
+			<div class="input-field s12 m12">
+				<select
+					id="favoriteList"
+					formControlName="favoriteField"
+					class="browser-default"
+					>
+					<option [ngValue]="null" selected disabled>
+						Select the favorite
+					</option>
+					<option 
+						*ngFor="let favorite of favoriteList"
+						[value]="favorite.id"
+						>
+						{{favorite.title}}
+					</option>
+				</select>
+			</div>
+			<button type="submit" class="btn cyan">Add to favorite</button>
+		</form>
+	</div>
 </div>
