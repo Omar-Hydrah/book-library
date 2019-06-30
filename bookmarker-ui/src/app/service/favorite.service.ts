@@ -36,11 +36,11 @@ export class FavoriteService {
             .pipe(catchError(this.handleError<Favorite>("createFavorite")));
     }
 
-    addBookToFavorite(favorite : Favorite, book : Book) : Observable<Favorite>{
-    	return this.http.post<Favorite>(
-            `/api/favorite/${favorite.id}/add-book`, book, this.httpOptions)
-    		.pipe(catchError(
-                this.handleError<Favorite>("addBookToFavorite", favorite)));
+    addBookToFavorite(book : Book, favoriteId : number) : Observable<Favorite>{
+        return this.http.post<Favorite>(
+            `/api/favorite/find/${favoriteId}/add-book/`, book.id,
+            this.httpOptions)
+            .pipe(catchError(this.handleError<Favorite>("addBookToFavorite")));
     }
 
     private handleError<T>(operation="operation", result ? : T){
