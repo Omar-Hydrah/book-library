@@ -9,6 +9,15 @@
 					/>
 				<label for="name">Author Name</label>
 			</div>
+			<div class="error" *ngIf="nameField.invalid && 
+				(nameField.touched || nameField.dirty)">
+				<div *ngIf="nameField.errors.required">
+					<p>Author name can not be left blank</p>
+				</div>
+				<div *ngIf="nameField.errors.minlength">
+					<p>Author name must be more than 4 characters</p>
+				</div>
+			</div>
 
 			<button type="submit" class="btn cyan">Save Author</button>
 		</div>
