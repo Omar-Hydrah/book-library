@@ -50,9 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-			.antMatchers("/", "/login", "/register", "/logout", "/css/*", 
-				"/api/**",
-				"/js/*").permitAll()
+			.antMatchers("/", "/login", "/register", "/logout", "/css/*", "/js/*", 
+				"/api/**", "/assets/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling().accessDeniedPage("/error")
