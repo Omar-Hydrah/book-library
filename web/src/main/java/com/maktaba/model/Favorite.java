@@ -27,8 +27,8 @@ public class Favorite{
 	@ManyToMany
 	@JoinTable(
 		name="favorite_books",
-		joinColumns = {@JoinColumn(name="book_id")},
-		inverseJoinColumns = {@JoinColumn(name="favorite_id")},
+		joinColumns = {@JoinColumn(name="favorite_id")},
+		inverseJoinColumns = {@JoinColumn(name="book_id")},
 		uniqueConstraints=@UniqueConstraint(
 			columnNames={"book_id", "favorite_id"})
 	)
