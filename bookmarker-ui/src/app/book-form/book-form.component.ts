@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { BookService, AuthorService } from "../service/";
 import { Book, Author } from "../model/";
 
@@ -25,7 +26,7 @@ export class BookFormComponent implements OnInit {
     }
 
     constructor(private bookService : BookService, 
-        private authorService : AuthorService) {}
+        private authorService : AuthorService, private router : Router) {}
 
     ngOnInit() {
         this.authorService.getAll().subscribe((authors : Author[])=>{
@@ -66,6 +67,11 @@ export class BookFormComponent implements OnInit {
         this.bookService.createBook(this.book).subscribe((book : Book)=>{
             if(book != null){
                 console.log("Book saved");
+                if(book.id != null){
+                    this.router.navigate(["/book", book.id]);
+                }else{
+                    this.router.navigate(["/"]);
+                }
             }else{
                 console.log("Failed to save book");
             }
