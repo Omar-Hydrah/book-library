@@ -339,16 +339,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _service___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/ */ "./src/app/service/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _service___WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/ */ "./src/app/service/index.ts");
+
 
 
 
 
 // declare var $ : any; 
 var BookFormComponent = /** @class */ (function () {
-    function BookFormComponent(bookService, authorService) {
+    function BookFormComponent(bookService, authorService, router) {
         this.bookService = bookService;
         this.authorService = authorService;
+        this.router = router;
         this.book = {
             id: null,
             title: "",
@@ -390,6 +393,12 @@ var BookFormComponent = /** @class */ (function () {
         this.bookService.createBook(this.book).subscribe(function (book) {
             if (book != null) {
                 console.log("Book saved");
+                if (book.id != null) {
+                    _this.router.navigate(["/book", book.id]);
+                }
+                else {
+                    _this.router.navigate(["/"]);
+                }
             }
             else {
                 console.log("Failed to save book");
@@ -402,8 +411,8 @@ var BookFormComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./book-form.component.html */ "./src/app/book-form/book-form.component.html"),
             styles: [__webpack_require__(/*! ./book-form.component.css */ "./src/app/book-form/book-form.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service___WEBPACK_IMPORTED_MODULE_3__["BookService"],
-            _service___WEBPACK_IMPORTED_MODULE_3__["AuthorService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_service___WEBPACK_IMPORTED_MODULE_4__["BookService"],
+            _service___WEBPACK_IMPORTED_MODULE_4__["AuthorService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], BookFormComponent);
     return BookFormComponent;
 }());
