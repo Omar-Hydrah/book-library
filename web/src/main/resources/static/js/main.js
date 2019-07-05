@@ -501,7 +501,7 @@ var BookListComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Jvb2stcGFnZS9ib29rLXBhZ2UuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = ".book-cover{\r\n\tmax-width:600px;\r\n\tmax-height:400px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYm9vay1wYWdlL2Jvb2stcGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsZUFBZTtDQUNmLGdCQUFnQjtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL2Jvb2stcGFnZS9ib29rLXBhZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5ib29rLWNvdmVye1xyXG5cdG1heC13aWR0aDo2MDBweDtcclxuXHRtYXgtaGVpZ2h0OjQwMHB4O1xyXG59Il19 */"
 
 /***/ }),
 
@@ -512,7 +512,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\t<h1>{{book.title}}</h1>\n\t<img src=\"/assets/books.png\" alt=\"book cover\" />\n\t<p>By {{book.author.name}}</p>\n\t<p>{{book.description}}</p>\n\n\t<hr />\n\t<p>Add this book to a favorite:</p>\n\t<div class=\"row\">\n\t\t<form [formGroup]=\"bookFavoriteForm\" (ngSubmit)=\"handleSubmit()\" >\n\t\t\t<div class=\"input-field s12 m12\">\n\t\t\t\t<select\n\t\t\t\t\tid=\"favoriteList\"\n\t\t\t\t\tformControlName=\"favoriteField\"\n\t\t\t\t\tclass=\"browser-default\"\n\t\t\t\t\t>\n\t\t\t\t\t<option [ngValue]=\"null\" selected disabled>\n\t\t\t\t\t\tSelect the favorite\n\t\t\t\t\t</option>\n\t\t\t\t\t<option \n\t\t\t\t\t\t*ngFor=\"let favorite of favoriteList\"\n\t\t\t\t\t\t[value]=\"favorite.id\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{favorite.title}}\n\t\t\t\t\t</option>\n\t\t\t\t</select>\n\t\t\t</div>\n\t\t\t<button type=\"submit\" class=\"btn cyan\">Add to favorite</button>\n\t\t</form>\n\t</div>\n</div>"
+module.exports = "<div>\n\t<h1>{{book.title}}</h1>\n\t<img src=\"/assets/books.png\" alt=\"book cover\" class=\"book-cover\" />\n\t<p>By {{book.author.name}}</p>\n\t<p>{{book.description}}</p>\n\n\t<hr />\n\t<p>Add this book to a favorite:</p>\n\t<div class=\"row\">\n\t\t<form [formGroup]=\"bookFavoriteForm\" (ngSubmit)=\"handleSubmit()\" >\n\t\t\t<div class=\"input-field s12 m12\">\n\t\t\t\t<select\n\t\t\t\t\tid=\"favoriteList\"\n\t\t\t\t\tformControlName=\"favoriteField\"\n\t\t\t\t\tclass=\"browser-default\"\n\t\t\t\t\t>\n\t\t\t\t\t<option [ngValue]=\"null\" selected disabled>\n\t\t\t\t\t\tSelect the favorite\n\t\t\t\t\t</option>\n\t\t\t\t\t<option \n\t\t\t\t\t\t*ngFor=\"let favorite of favoriteList\"\n\t\t\t\t\t\t[value]=\"favorite.id\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{favorite.title}}\n\t\t\t\t\t</option>\n\t\t\t\t</select>\n\t\t\t</div>\n\t\t\t<button type=\"submit\" class=\"btn cyan\">Add to favorite</button>\n\t\t</form>\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -633,21 +633,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var BookComponent = /** @class */ (function () {
     function BookComponent() {
-        this.bookSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     BookComponent.prototype.ngOnInit = function () {
-    };
-    BookComponent.prototype.onBookSelected = function () {
-        this.bookSelected.emit(this.book);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
     ], BookComponent.prototype, "book", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BookComponent.prototype, "bookSelected", void 0);
     BookComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'book-component',
